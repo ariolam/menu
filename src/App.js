@@ -4,8 +4,11 @@ import { useState } from "react";
 import data from "./data";
 import Categories from "./Categories";
 
+const allCategories = ["all", ...new Set(data.map((item) => item.category))];
+
 function App() {
   const [menu, setMenu] = useState(data);
+  const [category] = useState(allCategories);
 
   const filterMenu = (category) => {
     if (category === "all") {
@@ -20,7 +23,7 @@ function App() {
     <div className="App">
       <h2> Our Menu</h2>
       <div className="underline"></div>
-      <Categories filterMenu={filterMenu} />
+      <Categories filterMenu={filterMenu} category={category} />
       <ul>
         {" "}
         {menu.map((menu) => {
