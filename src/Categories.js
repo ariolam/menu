@@ -3,7 +3,7 @@ import React from "react";
 function Categories({ filterMenu, category }) {
   return (
     <div>
-      <div className="btn-container">
+      <div className="btn-container mt-5">
         {category.map((category, index) => {
           return (
             <button
